@@ -10,7 +10,7 @@ A javascript port of [lice](https://github.com/licenses/lice-python) originally 
 Installation
 ------------
 
-    npm install licejs
+    npm install lice-js
 
 or:
 
