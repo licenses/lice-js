@@ -1,0 +1,35 @@
+{
+  "name": "license",
+  "version": "0.1.0",
+  "description": "A tool to generate common FOSS LICENSE files",
+  "main": "./lice.js",
+  "directories" : {
+      "lib" : ".",
+      "bin" : "./bin"
+    },
+  "repository": {
+        "type" : "git",
+        "url" : "https://github.com/licenses/lice-js.git"
+    },
+  "keywords": [
+    "license",
+    "licence",
+    "legal",
+    "generator",
+    "cli"
+  ],
+  "preferGlobal": true,
+  "bin": {
+    "licejs": "./bin/cli.js"
+  },
+  "author" : {
+      "name" : "Daniel Haight",
+      "email" : "confidence.designed@gmail.com"
+    },
+  "license": "MIT",
+  "dependencies": {
+    "optimist": "~0.3.5",
+    "underscore": "~1.4.4",
+    "async": "~0.2.6"
+  }
+}
