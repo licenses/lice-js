@@ -16,6 +16,7 @@ or:
 
     git clone git@github.com:licenses/lice-js.git
     cd lice-js
+    (sudo)npm link
     
 
 
@@ -118,10 +119,14 @@ Options:
 - Error handling.
 - Unit testing.
 - Include [license-templates](https://github.com/licenses/license-templates) as submodule.
+- include --vars option to list template variables.
 - suggestions?
 
 Changelog
 ---------
+
+**0.2**
+* npm installable release
 
 **0.1**
 
