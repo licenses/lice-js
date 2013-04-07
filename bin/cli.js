@@ -25,7 +25,7 @@ var getDefaults = function(callback){
                 year : config.year || new Date().getFullYear(),
                 organization : config.organization || gitUser || process.env.USER, 
                 project :  config.project || process.cwd().split("/").slice(-1)[0],
-                licenseType : config.licenseType
+                licenseType : config.licenseType || 'bsd3'
             }
             callback(null, defaults);
         }
