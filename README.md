@@ -25,7 +25,7 @@ Overview
 
 Generate a BSD-3 license, the default:
 
-    $ lice
+    $ licejs
     Copyright (c) 2013, Jeremy Carbaugh
 
     All rights reserved.
@@ -35,7 +35,7 @@ Generate a BSD-3 license, the default:
 
 Generate an MIT license:
 
-    $ lice mit
+    $ licejs mit
     The MIT License (MIT)
     Copyright (c) 2013 Jeremy Carbaugh
 
@@ -74,7 +74,7 @@ licejs --config.organization "The Interesing Co."
 then if you want an MIT license for example:
 
 ```
-$ lice mit
+$ licejs mit
 The MIT License (MIT)
 Copyright (c) 2013 The Interesing Co.
 
@@ -98,10 +98,10 @@ Usage
 
 
 ```
-Usage: license [-h]
-license [-l]
-license [ -o [OWNER] -p [PROJECT] -y [YEAR] ] [license] [--header]
-license [--config[.key <VALUE>]]
+Usage: licejs [-h]
+licejs [-l]
+licejs [ -o [OWNER] -p [PROJECT] -y [YEAR] ] [license] [--header]
+licejs [--config[.key <VALUE>]]
 
 Options:
   -h, --help          show this help menu                                                                                     
