@@ -1,5 +1,5 @@
 {
-  "name": "licejs",
+  "name": "lice-js",
   "version": "0.2.0",
   "description": "A tool to generate common FOSS LICENSE files",
   "main": "./lice.js",
