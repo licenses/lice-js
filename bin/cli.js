@@ -34,7 +34,7 @@ var getDefaults = function(callback){
           package.author = package.author || {}
             var defaults={
                 year : config.year || new Date().getFullYear(),
-                organization : config.organization || package.author.name || gitUser || process.env.USER, 
+                organization : package.author.name || config.organization || gitUser || process.env.USER, 
                 project :  config.project || package.name || process.cwd().split("/").slice(-1)[0],
                 licenseType : config.licenseType || package.license || 'bsd3'
             }
