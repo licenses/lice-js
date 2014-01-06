@@ -3,6 +3,7 @@
 var license=require('../lice.js');
 
 var fs=require("fs");
+var path=require('path')
 var async=require('async');
 var exec = require('child_process').exec;
 var template=require('../licenseTemplate.js');
@@ -14,18 +15,28 @@ var config=require("../.config.json");
 var getDefaults = function(callback){
     async.waterfall([
         function (callback){
+            try {
+              var package
+              package = require(path.join(process.cwd(), 'package.json'))
+              callback(null, package)
+            } catch(e) {
+              callback(null, {})
+            }
+        },
+        function (package, callback){
             exec('git config --get user.name', function (err, stdout, stderr) {
-                if (err) throw er;
+                if (err) throw err;
                 var gitUser=stdout;
-                callback(err, gitUser);
+                callback(null, gitUser, package);
             });
         },
-        function (gitUser, callback){
+        function (gitUser, package, callback){
+          package.author = package.author || {}
             var defaults={
                 year : config.year || new Date().getFullYear(),
-                organization : config.organization || gitUser || process.env.USER, 
-                project :  config.project || process.cwd().split("/").slice(-1)[0],
-                licenseType : config.licenseType || 'bsd3'
+                organization : package.author.name || config.organization || gitUser || process.env.USER, 
+                project :  config.project || package.name || process.cwd().split("/").slice(-1)[0],
+                licenseType : config.licenseType || package.license || 'bsd3'
             }
             callback(null, defaults);
         }
