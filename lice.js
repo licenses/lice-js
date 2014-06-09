@@ -1,32 +1,29 @@
-var _=require("underscore"); //use for string interpolation out of laziness
-var template=require("./licenseTemplate.js");
+var _ = require('underscore'); //use for string interpolation out of laziness
+var template = require('./licenseTemplate.js');
 
-var templates =require('./templates.json');
+var templates = require('./templates.json');
 //http://underscorejs.org/#template // a la mustache
 _.templateSettings = {
-	interpolate : /\{\{(.+?)\}\}/g
+    interpolate: /\{\{(.+?)\}\}/g
 };
 
-var licenseTypes=function(){
-	var types=[];
-    for (var key in templates){
-        types.push(key);
+var licenseTypes = Object.keys(templates);
+
+var createLicense = function(licenseType, options, callback) {
+    var templateInput = templates[licenseType];
+    if (!templateInput) {
+        throw new Error('license not found: ' + licenseTypes.join(', ') + ' available');
     }
-    return types;
+    var licenseTemplate = new template(templateInput);
+    var license = licenseTemplate.licenseWithOptions(options);
+    callback(null, license);
 }
 
-var createLicense=function(licenseType, options, callback){
-    var templateInput=templates[licenseType];
-    var licenseTemplate=new template(templateInput);
-    var license=licenseTemplate.licenseWithOptions(options);
-	callback(null, license);
-}
-
-var licenseVars=function(licenseType, callback){
-    var licenseTemplate=new template(templateInput);
+var licenseVars = function(licenseType, callback) {
+    var licenseTemplate = new template(templateInput);
     return licenseTemplate.vars;
 }
 
-exports.createLicense=createLicense;
-exports.licenseTypes=licenseTypes;
-exports.createLicense=createLicense;
+exports.createLicense = createLicense;
+exports.licenseTypes = licenseTypes;
+exports.createLicense = createLicense;
