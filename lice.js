@@ -23,6 +23,7 @@ var createLicense=function(licenseType, options, callback){
 }
 
 var licenseVars=function(licenseType, callback){
+    var templateInput=templates[licenseType];
     var licenseTemplate=new template(templateInput);
     return licenseTemplate.vars;
 }
